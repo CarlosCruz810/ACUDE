@@ -1,238 +1,333 @@
 <!DOCTYPE html>
-<!-- Actualizado: 2026 -->
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACUDE - Centro de Capacitación y Desarrollo Integral</title>
+    <!-- Cargamos íconos de FontAwesome para la sección de Valores -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            line-height: 1.6; 
-            background: #a16207; 
-            background: linear-gradient(135deg, #f97316 0%, #a16207 100%); 
-            color: #333; 
-        }
-        
-        .main-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 20px;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        header { 
-            background-color: #004a99; 
-            color: #fff; 
-            padding: 35px 20px; 
-            text-align: center; 
-            border-radius: 12px; 
-            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+        body { 
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; 
+            line-height: 1.6; 
+            /* Fondo cálido degradado marrón/naranja como en la maqueta */
+            background: linear-gradient(135deg, #cc6600 0%, #8b3a00 50%, #4a1c00 100%);
+            background-attachment: fixed;
+            color: #1f2937;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* --- MARCA DE AGUA DEL FARO A LA DERECHA --- */
+        body::after {
+            content: "";
+            position: fixed;
+            right: -5%;
+            bottom: -10%;
+            width: 50vw;
+            height: 90vh;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ffffff' opacity='0.08' d='M50,5 L35,25 L65,25 Z M38,28 L28,95 L72,95 L62,28 Z M45,35 L55,35 L55,45 L45,45 Z M44,52 L56,52 L56,65 L44,65 Z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right bottom;
+            background-size: contain;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* --- BARRA SUPERIOR Y NAVEGACIÓN --- */
+        .top-stripe {
+            background-color: #004a99;
+            height: 10px;
+            width: 100%;
+        }
+
+        nav {
+            background-color: #ffffff;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 10;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .lighthouse-icon {
+            width: 40px;
+            height: 40px;
+            background: #004a99;
+            clip-path: polygon(30% 0%, 70% 0%, 85% 100%, 15% 100%);
+            display: inline-block;
+        }
+
+        .brand-title {
+            color: #004a99;
+            font-size: 1.8em;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .brand-subtitle {
+            font-size: 0.7em;
+            color: #004a99;
+            display: block;
+            margin-top: -5px;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 1em;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #004a99;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            color: #ffffff;
+            font-size: 2.2em;
+            font-weight: 700;
+            margin-bottom: 35px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        /* --- TARJETAS CREMA REDONDEADAS --- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
             margin-bottom: 30px;
         }
-        
-        .logo-text-acude {
-            color: #f59e0b; 
-            font-size: 3.2em;
-            font-weight: bold;
-            letter-spacing: 5px;
-            margin: 0;
-            text-transform: uppercase;
-        }
-        
-        .subtitle {
-            margin: 5px 0 20px 0;
-            font-size: 1.25em;
-            opacity: 0.95;
-            font-weight: 300;
+
+        .card-cream {
+            background-color: #fcf8ee; /* Color crema exacto */
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
-        section { 
-            background: white; 
-            padding: 35px; 
-            margin-top: 30px; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-            position: relative; 
-            overflow: hidden; 
+        .card-cream h2 {
+            color: #003b7a;
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            font-weight: 700;
         }
-        
-        h2 { 
-            color: #004a99; 
-            border-bottom: 3px solid #f59e0b; 
-            padding-bottom: 10px;
-            margin-top: 0;
+
+        .card-cream p {
+            color: #333;
+            font-size: 1em;
+            line-height: 1.7;
+        }
+
+        /* --- SECCIÓN VALORES CON ÍCONOS --- */
+        .values-section {
+            background-color: #fcf8ee;
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .values-section h2 {
+            color: #003b7a;
             font-size: 1.8em;
-            position: relative;
-            z-index: 2; 
+            margin-bottom: 25px;
         }
 
-        p, ul {
-            position: relative;
-            z-index: 2; 
-        }
-
-        section::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 80%; 
-            height: 80%;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23fef3c7' d='M50,10 L40,30 L60,30 Z M40,30 L30,90 L70,90 L60,30 Z M45,40 L55,40 L55,50 L45,50 Z M45,60 L55,60 L55,70 L45,70 Z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: contain;
-            opacity: 0.15; 
-            transform: translate(-50%, -50%);
-            z-index: 1; 
-        }
-
-        .mv-container {
+        .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .mv-box {
-            background: #fdf8f6; 
-            padding: 25px;
-            border-radius: 10px;
-            border-top: 4px solid #004a99;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-
-        .mv-box h3 {
-            color: #004a99;
-            margin-top: 0;
-            font-size: 1.4em;
-        }
-
-        .values-list {
-            list-style-type: none;
-            padding: 0;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .values-list li {
-            background-color: #fffbeb; 
-            margin-bottom: 15px;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 6px solid #f59e0b; 
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .values-list strong {
-            color: #004a99;
-            font-size: 1.1em;
-            margin-right: 10px;
-            white-space: nowrap;
-        }
-
-        .oferta-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
             gap: 20px;
-            padding: 0;
-            list-style: none;
-            position: relative;
-            z-index: 2;
-        }
-
-        .oferta-list li {
-            background: #f0f7ff; 
-            padding: 20px;
-            border-radius: 10px;
-            border-top: 4px solid #004a99;
             text-align: center;
-            font-weight: 600;
-            color: #004a99;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
 
+        .value-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .value-icon {
+            font-size: 2.2em;
+            color: #004a99;
+            margin-bottom: 12px;
+        }
+
+        .value-title {
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 8px;
+            font-size: 1.05em;
+        }
+
+        .value-desc {
+            font-size: 0.85em;
+            color: #444;
+            line-height: 1.4;
+        }
+
+        /* --- PIE DE PÁGINA (FOOTER AMARILLO) --- */
         footer {
-            margin-top: 40px;
-            padding: 30px;
-            background-color: #f59e0b; 
-            color: #004a99; 
-            text-align: center;
-            border-radius: 12px;
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+            background-color: #f3af2b; /* Color amarillo oro */
+            color: #111;
+            padding: 25px 5%;
+            margin-top: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            position: relative;
+            z-index: 10;
         }
 
-        footer h2 {
-            color: #004a99;
-            border-bottom: 2px solid #004a99;
-            display: inline-block;
-            margin-bottom: 15px;
+        .footer-info h3 {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            color: #000;
+        }
+
+        .footer-info p {
+            font-size: 0.9em;
+            margin: 3px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-links a {
+            color: #111;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: block;
+            margin: 4px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 15px; text-align: center; }
+            .nav-links { flex-wrap: wrap; justify-content: center; }
+            footer { flex-direction: column; text-align: center; }
+            .footer-info p { justify-content: center; }
         }
     </style>
 </head>
 <body>
-    <div class="main-container">
-        <header>
-            <h1 class="logo-text-acude">A C U D E</h1>
-            <p class="subtitle">Centro de Capacitación y Desarrollo Integral</p>
-        </header>
 
-        <section id="nosotros">
-            <div class="mv-container">
-                <div class="mv-box">
-                    <h3>Misión</h3>
-                    <p>Transformar la vida de jóvenes y adultos mediante un modelo de acompañamiento educativo integral que facilite la acreditación de sus estudios básicos y profesionales. Nos comprometemos a derribar las barreras del aprendizaje, combinando la excelencia académica con el apoyo emocional, para que cada estudiante recupere la confianza en su potencial y alcance sus metas oficiales.</p>
+    <!-- BARRA AZUL SUPERIOR Y NAVEGACIÓN -->
+    <div class="top-stripe"></div>
+    <nav>
+        <div class="brand-logo">
+            <i class="fa-solid fa-tower-observation" style="font-size: 2.2em; color: #f3af2b;"></i>
+            <div>
+                <span class="brand-title">ACUDE</span>
+                <span class="brand-subtitle">Centro de Capacitación y Desarrollo Integral</span>
+            </div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#programas">Programas</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <div class="container" id="inicio">
+        
+        <h1 class="hero-title">Transformando vidas, impulsando sueños.</h1>
+
+        <!-- SECCIÓN MISIÓN Y VISIÓN EN 2 COLUMNAS -->
+        <div class="grid-2" id="nosotros">
+            <div class="card-cream">
+                <h2>Nuestra Misión</h2>
+                <p>Transformar la vida de jóvenes y adultos mediante un modelo de acompañamiento educativo integral que facilite la acreditación de sus estudios básicos y profesionales. Nos comprometemos a derribar las barreras del aprendizaje, combinando la excelencia académica con el apoyo emocional, para que cada estudiante recupere la confianza en su potencial y alcance sus metas oficiales.</p>
+            </div>
+            
+            <div class="card-cream">
+                <h2>Nuestra Visión</h2>
+                <p>Ser el centro de capacitación y gestoría educativa líder en el país, reconocido por humanizar la enseñanza. Aspiramos a ser el puente principal entre las personas y sus sueños académicos, creando una sociedad más preparada y empoderada, donde concluir los estudios sea un proceso de realización personal y no solo un trámite administrativo.</p>
+            </div>
+        </div>
+
+        <!-- SECCIÓN VALORES CON ÍCONOS -->
+        <div class="values-section">
+            <h2>Valores</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <i class="fa-solid fa-user-gear value-icon"></i>
+                    <div class="value-title">Acompañamiento</div>
+                    <div class="value-desc">Caminamos junto al alumno en cada paso de su proceso.</div>
                 </div>
-                <div class="mv-box">
-                    <h3>Visión</h3>
-                    <p>Ser el centro de capacitación y gestoría educativa líder en el país, reconocido por humanizar la enseñanza. Aspiramos a ser el puente principal entre las personas y sus sueños académicos, creando una sociedad más preparada y empoderada, donde concluir los estudios sea un proceso de realización personal y no solo un trámite administrativo.</p>
+                <div class="value-item">
+                    <i class="fa-solid fa-heart-pulse value-icon"></i>
+                    <div class="value-title">Empatía</div>
+                    <div class="value-desc">Comprendemos las historias de vida detrás de cada estudiante.</div>
+                </div>
+                <div class="value-item">
+                    <i class="fa-solid fa-shield-halved value-icon"></i>
+                    <div class="value-title">Integridad</div>
+                    <div class="value-desc">Actuamos con total transparencia y procesos éticos.</div>
+                </div>
+                <div class="value-item">
+                    <i class="fa-solid fa-award value-icon"></i>
+                    <div class="value-title">Compromiso</div>
+                    <div class="value-desc">Nos enfocamos en resultados tangibles y certificados.</div>
+                </div>
+                <div class="value-item">
+                    <i class="fa-solid fa-ribbon value-icon"></i>
+                    <div class="value-title">Excelencia</div>
+                    <div class="value-desc">Conocimiento acompañado de un sentido de propósito.</div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <section id="valores">
-            <h2>Nuestros Valores</h2>
-            <ul class="values-list">
-                <li>
-                    <strong>Acompañamiento:</strong> No solo enseñamos; caminamos junto al alumno en cada paso de su proceso.
-                </li>
-                <li>
-                    <strong>Empatía:</strong> Comprendemos las historias de vida detrás de cada estudiante.
-                </li>
-                <li>
-                    <strong>Integridad:</strong> Actuamos con total transparencia y procesos éticos.
-                </li>
-                <li>
-                    <strong>Compromiso con el Éxito:</strong> La meta de nuestro alumno es nuestra propia meta.
-                </li>
-                <li>
-                    <strong>Excelencia Humana:</strong> El conocimiento técnico potenciado por un sentido de propósito.
-                </li>
-            </ul>
-        </section>
-
-        <section id="programas">
-            <h2>Oferta Educativa</h2>
-            <ul class="oferta-list">
-                <li>Acreditación de Primaria</li>
-                <li>Acreditación de Secundaria</li>
-                <li>Preparatoria y Estudios Básicos</li>
-                <li>Cursos Técnicos Profesionales</li>
-                <li>Idiomas y Computación</li>
-            </ul>
-        </section>
-
-        <footer id="contacto">
-            <h2>Contacto</h2>
-            <p>Déjanos acompañarte hacia tus metas académicas.</p>
-            <p><strong>Teléfono:</strong> (123) 456-7890<br>
-            <strong>Email:</strong> contacto@acude.edu.mx</p>
-        </footer>
     </div>
+
+    <!-- PIE DE PÁGINA AMARILLO (FOOTER) -->
+    <footer id="contacto">
+        <div class="footer-info">
+            <h3>Contacto</h3>
+            <p><i class="fa-solid fa-phone"></i> (998 121 2788</p>
+            <p><i class="fa-solid fa-envelope"></i> info@acude.edu.mx</p>
+        </div>
+        <div class="footer-links">
+            <a href="#">Políticas de Privacidad</a>
+            <a href="#">Aviso Legal</a>
+        </div>
+    </footer>
+
 </body>
 </html>
