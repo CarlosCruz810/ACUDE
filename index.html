@@ -1,32 +1,28 @@
 <!DOCTYPE html>
+<!-- Actualizado: 2026 -->
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACUDE - Centro de Capacitación y Desarrollo Integral</title>
     <style>
-        /* --- ESTILOS GENERALES Y FONDO DE LA PÁGINA --- */
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             margin: 0; 
             padding: 0; 
             line-height: 1.6; 
-            /* Fondo degradado inspirado en image_0.png */
             background: #a16207; 
             background: linear-gradient(135deg, #f97316 0%, #a16207 100%); 
             color: #333; 
         }
         
-        /* Contenedor principal que centra el contenido */
         .main-container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 20px;
         }
 
-        /* --- ENCABEZADO (HEADER) AZUL --- */
         header { 
-            /* Color azul oscuro del logo de image_1.png */
             background-color: #004a99; 
             color: #fff; 
             padding: 35px 20px; 
@@ -37,7 +33,6 @@
         }
         
         .logo-text-acude {
-            /* Color amarillo-dorado del logo de image_1.png */
             color: #f59e0b; 
             font-size: 3.2em;
             font-weight: bold;
@@ -53,15 +48,14 @@
             font-weight: 300;
         }
 
-        /* --- ESTILOS DE SECCIONES GENERALES --- */
         section { 
             background: white; 
             padding: 35px; 
             margin-top: 30px; 
             border-radius: 12px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-            position: relative; /* Para el fondo de agua */
-            overflow: hidden; /* Para que el fondo no se salga */
+            position: relative; 
+            overflow: hidden; 
         }
         
         h2 { 
@@ -71,33 +65,30 @@
             margin-top: 0;
             font-size: 1.8em;
             position: relative;
-            z-index: 2; /* Por encima del fondo */
+            z-index: 2; 
         }
 
         p, ul {
             position: relative;
-            z-index: 2; /* Por encima del fondo */
+            z-index: 2; 
         }
 
-        /* --- FILIGRANA DE FONDO (WATERMARK) --- */
         section::before {
             content: "";
             position: absolute;
             top: 50%;
             left: 50%;
-            width: 80%; /* Tamaño grande */
+            width: 80%; 
             height: 80%;
-            /* Imagen del faro simplificada (usamos un SVG en línea para que funcione sin archivos extra) */
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23fef3c7' d='M50,10 L40,30 L60,30 Z M40,30 L30,90 L70,90 L60,30 Z M45,40 L55,40 L55,50 L45,50 Z M45,60 L55,60 L55,70 L45,70 Z'/%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: center;
             background-size: contain;
-            opacity: 0.15; /* Muy sutil */
+            opacity: 0.15; 
             transform: translate(-50%, -50%);
-            z-index: 1; /* Por debajo del texto */
+            z-index: 1; 
         }
 
-        /* --- MISIÓN Y VISIÓN (DOS COLUMNAS) --- */
         .mv-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -107,7 +98,7 @@
         }
 
         .mv-box {
-            background: #fdf8f6; /* Fondo crema muy suave */
+            background: #fdf8f6; 
             padding: 25px;
             border-radius: 10px;
             border-top: 4px solid #004a99;
@@ -120,7 +111,6 @@
             font-size: 1.4em;
         }
 
-        /* --- VALORES (LISTA DESTACADA) --- */
         .values-list {
             list-style-type: none;
             padding: 0;
@@ -129,7 +119,7 @@
         }
         
         .values-list li {
-            background-color: #fffbeb; /* Fondo amarillo muy suave */
+            background-color: #fffbeb; 
             margin-bottom: 15px;
             padding: 20px;
             border-radius: 8px;
@@ -146,7 +136,6 @@
             white-space: nowrap;
         }
 
-        /* --- OFERTA EDUCATIVA (GRILLA) --- */
         .oferta-list {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -158,7 +147,7 @@
         }
 
         .oferta-list li {
-            background: #f0f7ff; /* Azul muy suave */
+            background: #f0f7ff; 
             padding: 20px;
             border-radius: 10px;
             border-top: 4px solid #004a99;
@@ -168,12 +157,11 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.05);
         }
 
-        /* --- FOOTER (CONTACTO) --- */
         footer {
             margin-top: 40px;
             padding: 30px;
-            background-color: #f59e0b; /* Amarillo del logo */
-            color: #004a99; /* Azul del logo */
+            background-color: #f59e0b; 
+            color: #004a99; 
             text-align: center;
             border-radius: 12px;
             box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
@@ -189,13 +177,11 @@
 </head>
 <body>
     <div class="main-container">
-        <!-- ENCABEZADO Y ESLOGAN -->
         <header>
             <h1 class="logo-text-acude">A C U D E</h1>
             <p class="subtitle">Centro de Capacitación y Desarrollo Integral</p>
         </header>
 
-        <!-- MISIÓN Y VISIÓN -->
         <section id="nosotros">
             <div class="mv-container">
                 <div class="mv-box">
@@ -209,7 +195,6 @@
             </div>
         </section>
 
-        <!-- VALORES INSTITUCIONALES -->
         <section id="valores">
             <h2>Nuestros Valores</h2>
             <ul class="values-list">
@@ -231,7 +216,6 @@
             </ul>
         </section>
 
-        <!-- OFERTA EDUCATIVA -->
         <section id="programas">
             <h2>Oferta Educativa</h2>
             <ul class="oferta-list">
@@ -243,12 +227,11 @@
             </ul>
         </section>
 
-        <!-- CONTACTO (FOOTER) -->
         <footer id="contacto">
             <h2>Contacto</h2>
             <p>Déjanos acompañarte hacia tus metas académicas.</p>
-            <p><strong>Teléfono:</strong> 9981212788<br>
-            <strong>Email:</strong> contacto@acudeA.edu.mx</p>
+            <p><strong>Teléfono:</strong> (123) 456-7890<br>
+            <strong>Email:</strong> contacto@acude.edu.mx</p>
         </footer>
     </div>
 </body>
