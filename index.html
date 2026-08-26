@@ -5,132 +5,185 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACUDE - Centro de Capacitación y Desarrollo Integral</title>
     <style>
-        /* Fondo degradado inspirado en la primera imagen */
+        /* --- ESTILOS GENERALES Y FONDO DE LA PÁGINA --- */
         body { 
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             margin: 0; 
-            padding: 20px; 
+            padding: 0; 
             line-height: 1.6; 
+            /* Fondo degradado inspirado en image_0.png */
             background: #a16207; 
             background: linear-gradient(135deg, #f97316 0%, #a16207 100%); 
             color: #333; 
         }
         
-        /* Contenedor principal */
+        /* Contenedor principal que centra el contenido */
         .main-container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
+            padding: 20px;
         }
 
-        /* Estilos para el encabezado */
+        /* --- ENCABEZADO (HEADER) AZUL --- */
         header { 
-            background-color: #004a99; /* Azul del logo */
+            /* Color azul oscuro del logo de image_1.png */
+            background-color: #004a99; 
             color: #fff; 
             padding: 35px 20px; 
             text-align: center; 
             border-radius: 12px; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            margin-bottom: 30px;
         }
         
         .logo-text-acude {
-            color: #f59e0b; /* Amarillo-dorado */
-            font-size: 3em;
+            /* Color amarillo-dorado del logo de image_1.png */
+            color: #f59e0b; 
+            font-size: 3.2em;
             font-weight: bold;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             margin: 0;
+            text-transform: uppercase;
         }
         
         .subtitle {
-            margin: 5px 0 15px 0;
-            font-size: 1.2em;
+            margin: 5px 0 20px 0;
+            font-size: 1.25em;
             opacity: 0.95;
             font-weight: 300;
         }
 
-        /* Estilo destacado para el Eslogan */
-        .slogan {
-            background-color: rgba(255, 255, 255, 0.15);
-            border-left: 4px solid #f59e0b;
-            padding: 12px 20px;
-            margin-top: 20px;
-            border-radius: 0 8px 8px 0;
-            font-style: italic;
-            font-size: 1.1em;
-            display: inline-block;
-        }
-
-        /* Estilos generales para las secciones */
+        /* --- ESTILOS DE SECCIONES GENERALES --- */
         section { 
             background: white; 
-            padding: 30px; 
-            margin-top: 25px; 
+            padding: 35px; 
+            margin-top: 30px; 
             border-radius: 12px; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+            position: relative; /* Para el fondo de agua */
+            overflow: hidden; /* Para que el fondo no se salga */
         }
         
         h2 { 
             color: #004a99; 
             border-bottom: 3px solid #f59e0b; 
-            padding-bottom: 8px;
+            padding-bottom: 10px;
             margin-top: 0;
-            font-size: 1.6em;
+            font-size: 1.8em;
+            position: relative;
+            z-index: 2; /* Por encima del fondo */
         }
 
-        /* Distribución en 2 columnas para Misión y Visión en pantallas medianas/grandes */
+        p, ul {
+            position: relative;
+            z-index: 2; /* Por encima del fondo */
+        }
+
+        /* --- FILIGRANA DE FONDO (WATERMARK) --- */
+        section::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%; /* Tamaño grande */
+            height: 80%;
+            /* Imagen del faro simplificada (usamos un SVG en línea para que funcione sin archivos extra) */
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23fef3c7' d='M50,10 L40,30 L60,30 Z M40,30 L30,90 L70,90 L60,30 Z M45,40 L55,40 L55,50 L45,50 Z M45,60 L55,60 L55,70 L45,70 Z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0.15; /* Muy sutil */
+            transform: translate(-50%, -50%);
+            z-index: 1; /* Por debajo del texto */
+        }
+
+        /* --- MISIÓN Y VISIÓN (DOS COLUMNAS) --- */
         .mv-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            position: relative;
+            z-index: 2;
         }
 
         .mv-box {
-            background: #fdf8f6;
-            padding: 20px;
-            border-radius: 8px;
+            background: #fdf8f6; /* Fondo crema muy suave */
+            padding: 25px;
+            border-radius: 10px;
             border-top: 4px solid #004a99;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
         }
 
         .mv-box h3 {
             color: #004a99;
             margin-top: 0;
+            font-size: 1.4em;
         }
 
-        /* Estilos para los Valores */
+        /* --- VALORES (LISTA DESTACADA) --- */
         .values-list {
             list-style-type: none;
             padding: 0;
+            position: relative;
+            z-index: 2;
         }
         
         .values-list li {
-            background-color: #fffbeb; 
-            margin-bottom: 12px;
-            padding: 15px 20px;
+            background-color: #fffbeb; /* Fondo amarillo muy suave */
+            margin-bottom: 15px;
+            padding: 20px;
             border-radius: 8px;
-            border-left: 5px solid #f59e0b; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            border-left: 6px solid #f59e0b; 
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: flex-start;
         }
 
         .values-list strong {
             color: #004a99;
-            font-size: 1.05em;
+            font-size: 1.1em;
+            margin-right: 10px;
+            white-space: nowrap;
         }
 
-        /* Estilos para Oferta Educativa */
+        /* --- OFERTA EDUCATIVA (GRILLA) --- */
         .oferta-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
             padding: 0;
             list-style: none;
+            position: relative;
+            z-index: 2;
         }
 
         .oferta-list li {
-            background: #f0f7ff;
-            padding: 15px;
-            border-radius: 8px;
-            border-top: 3px solid #004a99;
+            background: #f0f7ff; /* Azul muy suave */
+            padding: 20px;
+            border-radius: 10px;
+            border-top: 4px solid #004a99;
             text-align: center;
-            font-weight: 500;
+            font-weight: 600;
+            color: #004a99;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+        }
+
+        /* --- FOOTER (CONTACTO) --- */
+        footer {
+            margin-top: 40px;
+            padding: 30px;
+            background-color: #f59e0b; /* Amarillo del logo */
+            color: #004a99; /* Azul del logo */
+            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+        }
+
+        footer h2 {
+            color: #004a99;
+            border-bottom: 2px solid #004a99;
+            display: inline-block;
+            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -140,13 +193,10 @@
         <header>
             <h1 class="logo-text-acude">A C U D E</h1>
             <p class="subtitle">Centro de Capacitación y Desarrollo Integral</p>
-            <div class="slogan">
-                "Conocimiento que transforma, acompañamiento que impulsa."
-            </div>
         </header>
 
         <!-- MISIÓN Y VISIÓN -->
-        <section>
+        <section id="nosotros">
             <div class="mv-container">
                 <div class="mv-box">
                     <h3>Misión</h3>
@@ -160,45 +210,46 @@
         </section>
 
         <!-- VALORES INSTITUCIONALES -->
-        <section>
+        <section id="valores">
             <h2>Nuestros Valores</h2>
             <ul class="values-list">
                 <li>
-                    <strong>Acompañamiento:</strong> No solo enseñamos; caminamos junto al alumno en cada paso de su proceso, escuchando sus dudas y celebrando sus logros.
+                    <strong>Acompañamiento:</strong> No solo enseñamos; caminamos junto al alumno en cada paso de su proceso.
                 </li>
                 <li>
-                    <strong>Empatía:</strong> Comprendemos las historias de vida detrás de cada estudiante, adaptando nuestro enfoque a sus tiempos, necesidades y desafíos personales.
+                    <strong>Empatía:</strong> Comprendemos las historias de vida detrás de cada estudiante.
                 </li>
                 <li>
-                    <strong>Integridad:</strong> Actuamos con total transparencia en nuestra gestoría, garantizando procesos éticos y honestos ante las instituciones oficiales.
+                    <strong>Integridad:</strong> Actuamos con total transparencia y procesos éticos.
                 </li>
                 <li>
-                    <strong>Compromiso con el Éxito:</strong> La meta de nuestro alumno es nuestra propia meta; nos enfocamos en resultados tangibles que se traducen en certificados y nuevas oportunidades.
+                    <strong>Compromiso con el Éxito:</strong> La meta de nuestro alumno es nuestra propia meta.
                 </li>
                 <li>
-                    <strong>Excelencia Humana:</strong> Creemos que el conocimiento técnico es más poderoso cuando se acompaña de un sentido de propósito y dignidad personal.
+                    <strong>Excelencia Humana:</strong> El conocimiento técnico potenciado por un sentido de propósito.
                 </li>
             </ul>
         </section>
 
         <!-- OFERTA EDUCATIVA -->
-        <section>
+        <section id="programas">
             <h2>Oferta Educativa</h2>
             <ul class="oferta-list">
-                <li>Acreditación de Primaria y Secundaria</li>
+                <li>Acreditación de Primaria</li>
+                <li>Acreditación de Secundaria</li>
                 <li>Preparatoria y Estudios Básicos</li>
-                <li>Cursos Técnicos y Capacitaciones</li>
+                <li>Cursos Técnicos Profesionales</li>
                 <li>Idiomas y Computación</li>
             </ul>
         </section>
 
-        <!-- CONTACTO -->
-        <section>
+        <!-- CONTACTO (FOOTER) -->
+        <footer id="contacto">
             <h2>Contacto</h2>
-            <p>Déjanos acompañarte hacia tus metas académicas y profesionales. Ponte en contacto con nosotros para mayor información sobre inscripciones.</p>
-            <p><strong>Teléfono:</strong> (123) 456-7890<br>
+            <p>Déjanos acompañarte hacia tus metas académicas.</p>
+            <p><strong>Teléfono:</strong> 9981212788<br>
             <strong>Email:</strong> contacto@acude.edu.mx</p>
-        </section>
+        </footer>
     </div>
 </body>
 </html>
