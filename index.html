@@ -32,7 +32,6 @@
         body { 
             font-family: 'Inter', system-ui, -apple-system, sans-serif; 
             line-height: 1.8; 
-            /* Fondo de paisaje de montaña con capa oscura estilo dramático */
             background: linear-gradient(rgba(15, 20, 25, 0.75), rgba(15, 20, 25, 0.85)), 
                         url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
             background-size: cover;
@@ -40,22 +39,6 @@
             position: relative;
             min-height: 100vh;
             overflow-x: hidden;
-        }
-
-        /* MARCA DE AGUA DEL LOGO (FONDO BLANCO REMOVIDO) */
-        .watermark-logo {
-            position: fixed;
-            right: -2vw;
-            bottom: -2vh;
-            width: 48vw;
-            max-width: 600px;
-            height: auto;
-            opacity: 0.25;
-            pointer-events: none;
-            z-index: 1;
-            /* Elimina el fondo blanco reteniendo solo el trazo oscuro */
-            mix-blend-mode: multiply;
-            filter: contrast(150%);
         }
 
         /* NAVEGACIÓN DÉBILMENTE ILUMINADA ESTILO OSCURO */
@@ -80,10 +63,13 @@
             gap: 16px;
         }
 
+        /* LOGO SUPERIOR: SE MEZCLA EL FONDO BLANCO PARA QUE QUEDE TRANSPARENTE */
         .site-logo {
             height: 65px;
             width: auto;
             object-fit: contain;
+            mix-blend-mode: screen; 
+            filter: contrast(120%);
         }
 
         .brand-title {
@@ -326,9 +312,6 @@
 </head>
 <body>
 
-    <!-- MARCA DE AGUA CON TU LOGO (FONDO BLANCO REMOVIDO) -->
-    <img src="LOGO.PNG" alt="ACUDE Watermark" class="watermark-logo">
-
     <nav>
         <div class="brand-logo">
             <img src="logo.jpg" alt="Logo ACUDE" class="site-logo">
@@ -349,7 +332,7 @@
     <main class="container">
         
         <header class="hero">
-            <h1>Conocimiento que transforma, acompañamiento que impulsa</h1>
+            <h1>Transformando vidas, impulsando sueños.</h1>
             <p>Un espacio de acompañamiento educativo e integral diseñado para derribar las barreras del aprendizaje.</p>
         </header>
 
