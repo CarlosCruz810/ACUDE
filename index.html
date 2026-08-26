@@ -39,9 +39,10 @@
             color: var(--text-main);
             position: relative;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
-        /* MARCA DE AGUA DEL LOGO EN EL FONDO */
+        /* MARCA DE AGUA DEL LOGO (FONDO BLANCO REMOVIDO) */
         .watermark-logo {
             position: fixed;
             right: -2vw;
@@ -49,10 +50,12 @@
             width: 48vw;
             max-width: 600px;
             height: auto;
-            opacity: 0.12;
+            opacity: 0.25;
             pointer-events: none;
             z-index: 1;
-            filter: brightness(2);
+            /* Elimina el fondo blanco reteniendo solo el trazo oscuro */
+            mix-blend-mode: multiply;
+            filter: contrast(150%);
         }
 
         /* NAVEGACIÓN DÉBILMENTE ILUMINADA ESTILO OSCURO */
@@ -323,7 +326,7 @@
 </head>
 <body>
 
-    <!-- MARCA DE AGUA CON TU LOGO -->
+    <!-- MARCA DE AGUA CON TU LOGO (FONDO BLANCO REMOVIDO) -->
     <img src="LOGO.PNG" alt="ACUDE Watermark" class="watermark-logo">
 
     <nav>
