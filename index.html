@@ -3,120 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Escuela - ACUDE</title>
+    <title>ACUDE - Centro de Capacitación y Desarrollo Integral</title>
     <style>
-        /* Aplicamos el fondo degradado de la imagen 0 */
+        /* Fondo degradado inspirado en la primera imagen */
         body { 
-            font-family: Arial, sans-serif; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
             margin: 0; 
             padding: 20px; 
             line-height: 1.6; 
-            /* Fondo degradado inspirado en la imagen 0 */
-            background: #a16207; /* Color sólido de respaldo */
+            background: #a16207; 
             background: linear-gradient(135deg, #f97316 0%, #a16207 100%); 
-            color: #333; /* Texto oscuro para legibilidad */
+            color: #333; 
         }
         
-        /* Contenedor principal para centrar el contenido */
+        /* Contenedor principal */
         .main-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         /* Estilos para el encabezado */
         header { 
-            /* Color azul oscuro del logo de la imagen 1 */
-            background-color: #004a99; 
+            background-color: #004a99; /* Azul del logo */
             color: #fff; 
-            padding: 30px; 
+            padding: 35px 20px; 
             text-align: center; 
-            border-radius: 8px; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-        }
-        
-        /* Estilos para el logo ACUDE */
-        .logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
+            border-radius: 12px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
         
         .logo-text-acude {
-            /* Color amarillo-dorado del logo de la imagen 1 */
-            color: #f59e0b;
-            font-size: 2.5em;
+            color: #f59e0b; /* Amarillo-dorado */
+            font-size: 3em;
             font-weight: bold;
+            letter-spacing: 4px;
             margin: 0;
         }
         
-        header p {
-            margin: 0;
-            font-size: 1.1em;
-            opacity: 0.9;
+        .subtitle {
+            margin: 5px 0 15px 0;
+            font-size: 1.2em;
+            opacity: 0.95;
+            font-weight: 300;
         }
 
-        /* Estilos para las secciones de contenido */
+        /* Estilo destacado para el Eslogan */
+        .slogan {
+            background-color: rgba(255, 255, 255, 0.15);
+            border-left: 4px solid #f59e0b;
+            padding: 12px 20px;
+            margin-top: 20px;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+            font-size: 1.1em;
+            display: inline-block;
+        }
+
+        /* Estilos generales para las secciones */
         section { 
             background: white; 
-            padding: 25px; 
+            padding: 30px; 
             margin-top: 25px; 
-            border-radius: 8px; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
         }
         
         h2 { 
-            /* Usamos el azul oscuro para los subtítulos */
             color: #004a99; 
-            border-bottom: 2px solid #f59e0b; /* Línea decorativa amarilla */
-            padding-bottom: 10px;
+            border-bottom: 3px solid #f59e0b; 
+            padding-bottom: 8px;
+            margin-top: 0;
+            font-size: 1.6em;
+        }
+
+        /* Distribución en 2 columnas para Misión y Visión en pantallas medianas/grandes */
+        .mv-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .mv-box {
+            background: #fdf8f6;
+            padding: 20px;
+            border-radius: 8px;
+            border-top: 4px solid #004a99;
+        }
+
+        .mv-box h3 {
+            color: #004a99;
             margin-top: 0;
         }
-        
-        ul {
+
+        /* Estilos para los Valores */
+        .values-list {
             list-style-type: none;
             padding: 0;
         }
         
-        li {
-            background-color: #fef3c7; /* Fondo amarillo muy suave */
-            margin-bottom: 10px;
-            padding: 10px;
-            border-radius: 4px;
-            border-left: 4px solid #f59e0b; /* Borde izquierdo amarillo */
+        .values-list li {
+            background-color: #fffbeb; 
+            margin-bottom: 12px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            border-left: 5px solid #f59e0b; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .values-list strong {
+            color: #004a99;
+            font-size: 1.05em;
+        }
+
+        /* Estilos para Oferta Educativa */
+        .oferta-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            padding: 0;
+            list-style: none;
+        }
+
+        .oferta-list li {
+            background: #f0f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            border-top: 3px solid #004a99;
+            text-align: center;
+            font-weight: 500;
         }
     </style>
 </head>
 <body>
     <div class="main-container">
+        <!-- ENCABEZADO Y ESLOGAN -->
         <header>
-            <div class="logo-container">
-                <!-- Representación del texto del logo -->
-                <p class="logo-text-acude">ACUDE</p>
+            <h1 class="logo-text-acude">A C U D E</h1>
+            <p class="subtitle">Centro de Capacitación y Desarrollo Integral</p>
+            <div class="slogan">
+                "Conocimiento que transforma, acompañamiento que impulsa."
             </div>
-            <h1>Bienvenido a Nuestra Escuela</h1>
-            <p>Centro de Capacitación y Desarrollo Integral</p>
         </header>
 
+        <!-- MISIÓN Y VISIÓN -->
         <section>
-            <h2>Sobre Nosotros</h2>
-            <p>Formamos líderes. Nuestra misión es proporcionar una educación de calidad que impulse el desarrollo integral y las competencias profesionales de cada estudiante.</p>
+            <div class="mv-container">
+                <div class="mv-box">
+                    <h3>Misión</h3>
+                    <p>Transformar la vida de jóvenes y adultos mediante un modelo de acompañamiento educativo integral que facilite la acreditación de sus estudios básicos y profesionales. Nos comprometemos a derribar las barreras del aprendizaje, combinando la excelencia académica con el apoyo emocional, para que cada estudiante recupere la confianza en su potencial y alcance sus metas oficiales.</p>
+                </div>
+                <div class="mv-box">
+                    <h3>Visión</h3>
+                    <p>Ser el centro de capacitación y gestoría educativa líder en el país, reconocido por humanizar la enseñanza. Aspiramos a ser el puente principal entre las personas y sus sueños académicos, creando una sociedad más preparada y empoderada, donde concluir los estudios sea un proceso de realización personal y no solo un trámite administrativo.</p>
+                </div>
+            </div>
         </section>
 
+        <!-- VALORES INSTITUCIONALES -->
         <section>
-            <h2>Oferta Educativa</h2>
-            <ul>
-                <li>Primaria y Secundaria con excelencia académica.</li>
-                <li>Cursos Técnicos y Capacitaciones Profesionales.</li>
-                <li>Programas de Idiomas y Computación Avanzada.</li>
-                <li>Talleres de Desarrollo Personal e Integral.</li>
+            <h2>Nuestros Valores</h2>
+            <ul class="values-list">
+                <li>
+                    <strong>Acompañamiento:</strong> No solo enseñamos; caminamos junto al alumno en cada paso de su proceso, escuchando sus dudas y celebrando sus logros.
+                </li>
+                <li>
+                    <strong>Empatía:</strong> Comprendemos las historias de vida detrás de cada estudiante, adaptando nuestro enfoque a sus tiempos, necesidades y desafíos personales.
+                </li>
+                <li>
+                    <strong>Integridad:</strong> Actuamos con total transparencia en nuestra gestoría, garantizando procesos éticos y honestos ante las instituciones oficiales.
+                </li>
+                <li>
+                    <strong>Compromiso con el Éxito:</strong> La meta de nuestro alumno es nuestra propia meta; nos enfocamos en resultados tangibles que se traducen en certificados y nuevas oportunidades.
+                </li>
+                <li>
+                    <strong>Excelencia Humana:</strong> Creemos que el conocimiento técnico es más poderoso cuando se acompaña de un sentido de propósito y dignidad personal.
+                </li>
             </ul>
         </section>
-        
+
+        <!-- OFERTA EDUCATIVA -->
         <section>
-            <h2>Ubicación y Contacto</h2>
-            <p>Visítanos o contáctanos para más información sobre inscripciones y programas.</p>
-            <p>Calle Principal #123, Ciudad Educativa<br>Teléfono: (123) 456-7890<br>Email: info@acude.edu</p>
+            <h2>Oferta Educativa</h2>
+            <ul class="oferta-list">
+                <li>Acreditación de Primaria y Secundaria</li>
+                <li>Preparatoria y Estudios Básicos</li>
+                <li>Cursos Técnicos y Capacitaciones</li>
+                <li>Idiomas y Computación</li>
+            </ul>
+        </section>
+
+        <!-- CONTACTO -->
+        <section>
+            <h2>Contacto</h2>
+            <p>Déjanos acompañarte hacia tus metas académicas y profesionales. Ponte en contacto con nosotros para mayor información sobre inscripciones.</p>
+            <p><strong>Teléfono:</strong> (123) 456-7890<br>
+            <strong>Email:</strong> contacto@acude.edu.mx</p>
         </section>
     </div>
 </body>
