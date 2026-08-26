@@ -32,13 +32,28 @@
         body { 
             font-family: 'Inter', system-ui, -apple-system, sans-serif; 
             line-height: 1.8; 
-            background: linear-gradient(rgba(15, 20, 25, 0.75), rgba(15, 20, 25, 0.85)), 
+            background: linear-gradient(rgba(15, 20, 25, 0.85), rgba(15, 20, 25, 0.90)), 
                         url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
             background-size: cover;
             color: var(--text-main);
             position: relative;
             min-height: 100vh;
             overflow-x: hidden;
+        }
+
+        /* LOGO GIGANTE DE FONDO TRASLÚCIDO */
+        .bg-watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -40%);
+            width: 70vw;
+            max-width: 650px;
+            height: auto;
+            opacity: 0.08; /* Ajusta la transparencia aquí (0.05 a 0.15 recomendado) */
+            pointer-events: none; /* Permite hacer click a través de la imagen */
+            z-index: 1; /* Queda detrás del contenido (z-index: 2+) */
+            filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.2));
         }
 
         /* NAVEGACIÓN DÉBILMENTE ILUMINADA ESTILO OSCURO */
@@ -63,7 +78,6 @@
             gap: 16px;
         }
 
-        /* LOGO SUPERIOR TRANSPARENTE */
         .site-logo {
             height: 65px;
             width: auto;
@@ -111,7 +125,7 @@
             margin: 150px auto 60px auto;
             padding: 0 24px;
             position: relative;
-            z-index: 2;
+            z-index: 2; /* Por encima de la marca de agua */
             display: flex;
             flex-direction: column;
             gap: 40px;
@@ -305,14 +319,17 @@
             .card { padding: 30px 20px; }
             .item-row { flex-direction: column; }
             footer { flex-direction: column; text-align: center; }
+            .bg-watermark { width: 90vw; }
         }
     </style>
 </head>
 <body>
 
+    <!-- MARCA DE AGUA EN EL FONDO -->
+    <img src="transparente.png" alt="" class="bg-watermark">
+
     <nav>
         <div class="brand-logo">
-            <!-- AQUÍ SE USA TU NUEVO ARCHIVO TRANSPARENTE -->
             <img src="transparente.png" alt="Logo ACUDE" class="site-logo">
             <div>
                 <span class="brand-title">ACUDE</span>
@@ -396,7 +413,13 @@
                 <div class="item-row">
                     <i class="fa-solid fa-graduation-cap item-icon"></i>
                     <div>
-                    
+                        <div class="item-title">Preparatoria en un Solo Examen</div>
+                        <div class="item-desc">Obtén tu certificado oficial con preparación guiada y acompañamiento continuo.</div>
+                    </div>
+                </div>
+                <div class="item-row">
+                    <i class="fa-solid fa-book-open item-icon"></i>
+                    <div>
                         <div class="item-title">Primaria y Secundaria para Adultos</div>
                         <div class="item-desc">Acredita tus estudios básicos con flexibilidad y asesoría personalizada.</div>
                     </div>
@@ -405,11 +428,7 @@
                     <i class="fa-solid fa-laptop item-icon"></i>
                     <div>
                         <div class="item-title">Cursos de Capacitación</div>
-                        <div class="item-desc">Club de Tareas</div>
-                        <div class="item-desc">Clases de Regularización Primaria y Secundaria</div>
-                        <div class="item-desc">Talleres SocioEmocionales</div>
-                        <div class="item-desc">Club de Lecturas y talleres Literarios</div>
-                        <div class="item-desc">Talleres de Terapia Grupal</div>
+                        <div class="item-desc">Inglés y computación diseñados para el desarrollo laboral y personal.</div>
                     </div>
                 </div>
             </div>
