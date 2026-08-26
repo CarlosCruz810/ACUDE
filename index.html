@@ -63,13 +63,12 @@
             gap: 16px;
         }
 
-        /* LOGO SUPERIOR: SE MEZCLA EL FONDO BLANCO PARA QUE QUEDE TRANSPARENTE */
+        /* LOGO SUPERIOR CON EL FONDO BLANCO REMOVIDO */
         .site-logo {
             height: 65px;
             width: auto;
             object-fit: contain;
-            mix-blend-mode: screen; 
-            filter: contrast(120%);
+            mix-blend-mode: multiply; /* Remueve el fondo blanco transparente */
         }
 
         .brand-title {
