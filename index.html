@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ACUDE | Centro de Capacitación y Desarrollo Integral</title>
+    <!-- Fuentes elegantes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -59,7 +60,7 @@
         nav {
             background-color: rgba(15, 20, 25, 0.85);
             backdrop-filter: blur(12px);
-            padding: 16px 8%;
+            padding: 12px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -74,19 +75,21 @@
         .brand-logo {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 18px;
         }
 
+        /* TAMAÑO DEL LOGO INCREMENTADO */
         .site-logo {
-            height: 65px;
+            height: 85px;
             width: auto;
             object-fit: contain;
+            transition: transform 0.3s ease;
         }
 
         .brand-title {
             font-family: 'Playfair Display', serif;
             color: #ffffff;
-            font-size: 1.8em;
+            font-size: 1.9em;
             font-weight: 600;
             letter-spacing: 1px;
             display: inline-flex;
@@ -130,7 +133,7 @@
         /* CONTENEDOR PRINCIPAL */
         .container {
             max-width: 860px;
-            margin: 150px auto 60px auto;
+            margin: 165px auto 60px auto;
             padding: 0 24px;
             position: relative;
             z-index: 2;
@@ -142,7 +145,7 @@
         /* HERO HEADER */
         .hero {
             text-align: center;
-            padding: 40px 0 20px 0;
+            padding: 30px 0 20px 0;
         }
 
         .hero h1 {
@@ -356,7 +359,8 @@
 
         @media (max-width: 768px) {
             nav { flex-direction: column; gap: 12px; text-align: center; }
-            .container { margin-top: 190px; }
+            .site-logo { height: 70px; }
+            .container { margin-top: 210px; }
             .hero h1 { font-size: 2.2em; }
             summary { padding: 20px; }
             .accordion-content { padding: 0 20px 25px 20px; }
@@ -368,6 +372,7 @@
 </head>
 <body>
 
+    <!-- MARCA DE AGUA EN EL FONDO -->
     <img src="transparente.png" alt="" class="bg-watermark">
 
     <nav>
@@ -394,6 +399,7 @@
             <p>Un espacio de acompañamiento educativo e integral diseñado para derribar las barreras del aprendizaje.</p>
         </header>
 
+        <!-- OFERTA EDUCATIVA -->
         <details class="card-accordion" id="oferta" open>
             <summary>
                 <h2>Oferta Educativa</h2>
@@ -439,6 +445,7 @@
             </div>
         </details>
 
+        <!-- MISIÓN -->
         <details class="card-accordion" id="mision">
             <summary>
                 <h2>Nuestra Misión</h2>
@@ -449,6 +456,7 @@
             </div>
         </details>
 
+        <!-- VISIÓN -->
         <details class="card-accordion" id="vision">
             <summary>
                 <h2>Nuestra Visión</h2>
@@ -459,6 +467,7 @@
             </div>
         </details>
 
+        <!-- VALORES -->
         <details class="card-accordion" id="valores">
             <summary>
                 <h2>Nuestros Valores</h2>
